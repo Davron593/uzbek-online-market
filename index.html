@@ -1,1166 +1,240 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <!-- Google Search Console -->
-    <meta name="google-site-verification" content="your-verification-code" />
-    
-    <!-- Asosiy meta ma'lumotlar -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OnlaynBozor - O'zbekistonning eng yirik onlayn bozori. Yangi va ishlatilgan mahsulotlar, arzon narxlar, ish o'rinlari va bo'sh ish joylari. Toshkent, Samarqand, Buxoro, Farg'ona.">
-    <meta name="keywords" content="onlaynbozor, onlayn bozor, internet bozor, mahsulot sotish, mahsulot sotib olish, ish o'rinlari, ish joylari, maosh, bozor uz, bozor.uz, olx uz, olx">
-    <meta name="author" content="OnlaynBozor.uz">
-    <meta name="robots" content="index, follow">
-    <meta name="revisit-after" content="1 day">
-    
-    <!-- Open Graph / Facebook / Telegram -->
-    <meta property="og:title" content="OnlaynBozor.uz - O'zbekistonning 1-sonli onlayn bozori">
-    <meta property="og:description" content="3000+ mahsulotlar, 500+ ish o'rinlari. Eng arzon narxlar kafolati!">
-    <meta property="og:image" content="https://onlaynbozor.uz/logo.png">
-    <meta property="og:url" content="https://onlaynbozor.uz">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="OnlaynBozor.uz - Eng katta onlayn bozor">
-    <meta name="twitter:description" content="Sotish, sotib olish, ish topish - Hammasi bir joyda!">
-    <meta name="twitter:image" content="https://onlaynbozor.uz/logo.png">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://onlaynbozor.uz">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏪</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏪</text></svg>">
-    
-    <title>OnlaynBozor.uz - O'zbekistonning eng katta onlayn bozori | Mahsulotlar va ish o'rinlari</title>
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>Online Bozor | Davron Sharipov</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+        :root {
+            --main-color: #7000ff; /* Uzum binafsha rangi */
+            --bg-color: #f4f5f5;
+            --text-dark: #1f2026;
         }
 
         body {
-            background: #f3f4f6;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            color: var(--text-dark);
         }
 
         /* Header */
-        .header {
-            background: white;
-            border-radius: 30px;
-            padding: 20px 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        header {
+            background: #fff;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
             position: sticky;
-            top: 20px;
-            z-index: 100;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--main-color);
             text-decoration: none;
         }
 
-        .logo-icon {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            width: 50px;
-            height: 50px;
-            border-radius: 15px;
+        .search-bar {
+            flex: 0.6;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            transform: rotate(5deg);
-            transition: 0.3s;
         }
 
-        .logo-icon:hover {
-            transform: rotate(0deg);
-        }
-
-        .logo-text {
-            font-size: 26px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .logo span {
-            font-size: 14px;
-            color: #6b7280;
-            font-weight: 400;
-            -webkit-text-fill-color: #6b7280;
-            background: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        /* Search Bar */
-        .search-container {
-            background: white;
-            border-radius: 50px;
-            padding: 5px;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            flex: 1;
-            max-width: 600px;
-            margin: 0 20px;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 50px;
-            font-size: 15px;
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #e2e2e2;
+            border-radius: 4px 0 0 4px;
             outline: none;
         }
 
-        .search-btn {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            border: none;
+        .search-bar button {
+            background: var(--main-color);
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0 4px 4px 0;
             cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
         }
 
-        .search-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Categories */
-        .categories {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 25px;
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        .category-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            min-width: 80px;
-            padding: 10px;
-            border-radius: 15px;
-            transition: 0.3s;
-            cursor: pointer;
-            color: #4b5563;
-        }
-
-        .category-item:hover {
-            background: #f3f4f6;
-            color: #2563eb;
-        }
-
-        .category-icon {
-            font-size: 24px;
-        }
-
-        .category-name {
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        /* Main Grid */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        @media (max-width: 900px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Product Section */
-        .section {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .section-header {
+        /* Nasiya Bo'limi */
+        .nasiya-banner {
+            background: linear-gradient(90deg, #7000ff 0%, #a259ff 100%);
+            color: white;
+            padding: 20px 5%;
+            margin: 20px 5%;
+            border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
         }
 
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #111827;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .limit-box {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
         }
 
-        .section-title i {
-            color: #2563eb;
-        }
-
-        .product-grid {
+        /* Mahsulotlar */
+        .container {
+            padding: 20px 5%;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
         }
 
-        .product-card {
-            background: #f9fafb;
-            border-radius: 18px;
-            padding: 20px;
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
             transition: 0.3s;
             position: relative;
-            border: 1px solid #f3f4f6;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(37,99,235,0.1);
-            border-color: #2563eb;
+        .card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #2563eb;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
-        .product-image {
+        .card img {
             width: 100%;
-            height: 140px;
-            background: linear-gradient(135deg, #dbeafe, #ede9fe);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            font-size: 40px;
-            color: #2563eb;
+            height: 200px;
+            object-fit: cover;
         }
 
-        .product-name {
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 5px;
-            font-size: 16px;
+        .card-body {
+            padding: 12px;
         }
 
-        .product-price {
-            color: #2563eb;
-            font-weight: 800;
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .product-seller {
-            font-size: 13px;
-            color: #6b7280;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* Job Card */
-        .job-card {
-            background: #f9fafb;
-            border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 15px;
-            border: 1px solid #f3f4f6;
-            transition: 0.3s;
-        }
-
-        .job-card:hover {
-            border-color: #2563eb;
-            background: white;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .job-title {
-            font-weight: 700;
-            color: #111827;
+        .price {
+            font-weight: bold;
             font-size: 18px;
+            margin: 10px 0;
         }
 
-        .job-salary {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .job-company {
-            color: #4b5563;
-            font-weight: 500;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .job-location {
-            color: #6b7280;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            margin-bottom: 12px;
-        }
-
-        .job-tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .job-tag {
-            background: white;
-            padding: 5px 15px;
-            border-radius: 50px;
+        .installment {
+            background: #ff0;
             font-size: 12px;
-            color: #2563eb;
-            border: 1px solid #2563eb;
-        }
-
-        /* Quick Add */
-        .quick-add {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            position: sticky;
-            top: 100px;
-        }
-
-        .quick-add h3 {
-            color: #111827;
-            margin-bottom: 20px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 14px 18px;
-            border: 2px solid #f3f4f6;
-            border-radius: 15px;
-            font-size: 14px;
-            transition: 0.3s;
-            background: #f9fafb;
-        }
-
-        .form-control:focus {
-            border-color: #2563eb;
-            background: white;
-            outline: none;
-        }
-
-        .btn {
-            padding: 14px 25px;
-            border: none;
-            border-radius: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            justify-content: center;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-            width: 100%;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37,99,235,0.3);
-        }
-
-        .btn-outline {
-            background: white;
-            border: 2px solid #2563eb;
-            color: #2563eb;
-        }
-
-        .btn-outline:hover {
-            background: #2563eb;
-            color: white;
+            padding: 2px 5px;
+            border-radius: 4px;
+            display: inline-block;
         }
 
         /* Footer */
-        .footer {
-            background: white;
-            border-radius: 30px 30px 20px 20px;
-            padding: 40px;
-            margin-top: 40px;
+        footer {
+            background: #fff;
+            padding: 40px 5%;
+            margin-top: 50px;
+            border-top: 1px solid #e2e2e2;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+        .contacts {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .footer-links h4 {
-            color: #111827;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #6b7280;
+        .contact-item {
             text-decoration: none;
-            font-size: 14px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            transition: 0.3s;
         }
 
-        .footer-links a:hover {
-            color: #2563eb;
+        .contact-item:hover {
+            color: var(--main-color);
+        }
+
+        .contact-item i {
+            font-size: 24px;
+            color: var(--main-color);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 30px;
             margin-top: 30px;
-            border-top: 1px solid #f3f4f6;
-            color: #6b7280;
+            color: #8b8e99;
             font-size: 14px;
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .search-container {
-                max-width: 100%;
-                margin: 0;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-        }
-
-        /* SEO Hidden Text */
-        .seo-text {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            border: 0;
         }
     </style>
 </head>
 <body>
-    <!-- SEO Matn - Google uchun -->
-    <div class="seo-text">
-        <h1>OnlaynBozor.uz - O'zbekistonning eng katta onlayn bozor tarmog'i</h1>
-        <p>OnlaynBozor.uz orqali siz yangi va ishlatilgan mahsulotlarni sotishingiz va sotib olishingiz mumkin. Shuningdek, platformamizda minglab ish o'rinlari va bo'sh ish joylari mavjud. Toshkent, Samarqand, Buxoro, Farg'ona, Andijon, Namangan va boshqa shaharlar bo'yicha mahsulotlar va ish o'rinlari.</p>
-        <p>Kategoriyalar: Elektronika, Kiyim-kechak, Uy jihozlari, Avtomobillar, Telefonlar, Kompyuterlar, Bolalar buyumlari, Sport tovarlari, Kitoblar, Xizmatlar</p>
-        <p>Ish o'rinlari: Dasturchi, O'qituvchi, Haydovchi, Sotuvchi, Muhandis, Hisobchi, Direktor, Marketing mutaxassisi</p>
+
+<header>
+    <a href="#" class="logo">ONLINE BOZOR</a>
+    <div class="search-bar">
+        <input type="text" placeholder="Mahsulotlarni qidirish...">
+        <button><i class="fa fa-search"></i></button>
     </div>
+    <div>Kirish | Savatcha</div>
+</header>
 
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <a href="/" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-store"></i>
-                </div>
-                <div class="logo-text">
-                    OnlaynBozor<span>.uz</span>
-                </div>
-            </a>
-
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Mahsulot, ish joyi, kompaniya nomi...">
-                <button class="search-btn">
-                    <i class="fas fa-search"></i> Qidirish
-                </button>
-            </div>
-
-            <div class="nav-links">
-                <button class="btn btn-outline" onclick="openModal('sell')">
-                    <i class="fas fa-plus"></i> Sotish
-                </button>
-                <button class="btn btn-primary" onclick="openModal('job')">
-                    <i class="fas fa-briefcase"></i> Ish joyi
-                </button>
-            </div>
-        </header>
-
-        <!-- Categories -->
-        <div class="categories">
-            <div class="category-item">
-                <i class="fas fa-mobile-alt category-icon"></i>
-                <span class="category-name">Elektronika</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-tshirt category-icon"></i>
-                <span class="category-name">Kiyim</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-couch category-icon"></i>
-                <span class="category-name">Uy jihozlari</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-car category-icon"></i>
-                <span class="category-name">Avtomobillar</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-baby category-icon"></i>
-                <span class="category-name">Bolalar</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-futbol category-icon"></i>
-                <span class="category-name">Sport</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-book category-icon"></i>
-                <span class="category-name">Kitoblar</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-laptop category-icon"></i>
-                <span class="category-name">Kompyuterlar</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-tools category-icon"></i>
-                <span class="category-name">Xizmatlar</span>
-            </div>
-            <div class="category-item">
-                <i class="fas fa-briefcase category-icon"></i>
-                <span class="category-name">Ish o'rinlari</span>
-            </div>
-        </div>
-
-        <!-- Main Grid -->
-        <div class="main-grid">
-            <!-- Left Column - Products -->
-            <div>
-                <!-- Products Section -->
-                <div class="section">
-                    <div class="section-header">
-                        <h2 class="section-title">
-                            <i class="fas fa-fire"></i>
-                            Tez sotilayotgan mahsulotlar
-                        </h2>
-                        <button class="btn btn-outline" style="padding: 10px 20px;">
-                            Barchasi <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div class="product-grid" id="productGrid">
-                        <!-- Products will be added here -->
-                    </div>
-                </div>
-
-                <!-- Jobs Section for Mobile -->
-                <div class="section" style="display: none;" id="mobileJobs">
-                    <div class="section-header">
-                        <h2 class="section-title">
-                            <i class="fas fa-briefcase"></i>
-                            So'nggi ish o'rinlari
-                        </h2>
-                    </div>
-                    <div id="mobileJobList"></div>
-                </div>
-            </div>
-
-            <!-- Right Column - Jobs & Quick Add -->
-            <div>
-                <!-- Jobs Section -->
-                <div class="section">
-                    <div class="section-header">
-                        <h2 class="section-title">
-                            <i class="fas fa-briefcase"></i>
-                            Ish o'rinlari
-                        </h2>
-                        <span class="job-salary" style="font-size: 12px;">Maoshlar bilan</span>
-                    </div>
-                    <div id="jobList">
-                        <!-- Jobs will be added here -->
-                    </div>
-                    <button class="btn btn-outline" style="width: 100%; margin-top: 15px;" onclick="openModal('job')">
-                        <i class="fas fa-plus"></i> Ish joyi qo'shish
-                    </button>
-                </div>
-
-                <!-- Quick Add Product -->
-                <div class="quick-add">
-                    <h3>
-                        <i class="fas fa-bolt" style="color: #2563eb;"></i>
-                        Tez sotish
-                    </h3>
-                    <form onsubmit="addProduct(event)">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="productName" placeholder="Mahsulot nomi" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="number" class="form-control" id="productPrice" placeholder="Narxi (so'm)" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="sellerName" placeholder="Sotuvchi ismi" required>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" id="productCategory">
-                                <option value="Elektronika">Elektronika</option>
-                                <option value="Kiyim">Kiyim</option>
-                                <option value="Uy jihozlari">Uy jihozlari</option>
-                                <option value="Avtomobil">Avtomobil</option>
-                                <option value="Boshqa">Boshqa</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-check-circle"></i> Sotish
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-grid">
-                <div class="footer-links">
-                    <h4>OnlaynBozor.uz</h4>
-                    <ul>
-                        <li><a href="#">Biz haqimizda</a></li>
-                        <li><a href="#">Yangiliklar</a></li>
-                        <li><a href="#">Hamkorlik</a></li>
-                        <li><a href="#">Reklama</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Mahsulotlar</h4>
-                    <ul>
-                        <li><a href="#">Elektronika</a></li>
-                        <li><a href="#">Kiyim</a></li>
-                        <li><a href="#">Uy jihozlari</a></li>
-                        <li><a href="#">Avtomobillar</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Ish o'rinlari</h4>
-                    <ul>
-                        <li><a href="#">IT sohasi</a></li>
-                        <li><a href="#">Savdo</a></li>
-                        <li><a href="#">Xizmat ko'rsatish</a></li>
-                        <li><a href="#">Qurilish</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Bog'lanish</h4>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> +998 78 777 77 77</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>© 2024 OnlaynBozor.uz - Barcha huquqlar himoyalangan.</p>
-                <p style="margin-top: 10px; color: #9ca3af;">O'zbekiston Respublikasidagi eng yirik onlayn bozor va ish portal</p>
-            </div>
-        </footer>
+<section class="nasiya-banner">
+    <div>
+        <h2>Nasiya savdo 0-0-12</h2>
+        <p>Boshlang'ich to'lovsiz, halol muddatli to'lov!</p>
     </div>
+    <div class="limit-box">
+        <div>Sizning limitingiz:</div>
+        <div style="font-size: 24px; font-weight: bold;">15 000 000 so'm</div>
+        <small>Ma'lumot olish uchun ro'yxatdan o'ting</small>
+    </div>
+</section>
 
-    <!-- Sell Modal -->
-    <div class="modal" id="sellModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-store" style="color: #2563eb;"></i>
-                    Mahsulot sotish
-                </h2>
-                <button class="close-btn" onclick="closeModal('sell')">&times;</button>
-            </div>
-            <form onsubmit="addProductModal(event)">
-                <div class="form-group">
-                    <label>Mahsulot nomi *</label>
-                    <input type="text" class="form-control" id="modalProductName" required>
-                </div>
-                <div class="form-group">
-                    <label>Narxi (so'm) *</label>
-                    <input type="number" class="form-control" id="modalProductPrice" required>
-                </div>
-                <div class="form-group">
-                    <label>Kategoriya</label>
-                    <select class="form-control" id="modalProductCategory">
-                        <option>Elektronika</option>
-                        <option>Kiyim</option>
-                        <option>Uy jihozlari</option>
-                        <option>Avtomobil</option>
-                        <option>Sport</option>
-                        <option>Kitoblar</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Holati</label>
-                    <select class="form-control" id="productCondition">
-                        <option>Yangi</option>
-                        <option>Ishlatilgan</option>
-                        <option>Muzokara</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Tavsif</label>
-                    <textarea class="form-control" rows="3" id="modalProductDescription" placeholder="Mahsulot haqida batafsil..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Sotuvchi ismi *</label>
-                    <input type="text" class="form-control" id="modalSellerName" required>
-                </div>
-                <div class="form-group">
-                    <label>Telefon raqam</label>
-                    <input type="tel" class="form-control" id="modalSellerPhone" placeholder="+998 XX XXX-XX-XX">
-                </div>
-                <div class="form-group">
-                    <label>Shahar</label>
-                    <select class="form-control" id="modalCity">
-                        <option>Toshkent</option>
-                        <option>Samarqand</option>
-                        <option>Buxoro</option>
-                        <option>Farg'ona</option>
-                        <option>Andijon</option>
-                        <option>Namangan</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">
-                    <i class="fas fa-check-circle"></i> Mahsulotni joylash
-                </button>
-            </form>
+<div class="container">
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Product">
+        <div class="card-body">
+            <div>Smart soat Apple V8</div>
+            <div class="installment">24 000 so'm/oy</div>
+            <div class="price">250 000 so'm</div>
         </div>
     </div>
-
-    <!-- Job Modal -->
-    <div class="modal" id="jobModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 style="display: flex; align-items: center; gap: 10px;">
-                    <i class="fas fa-briefcase" style="color: #2563eb;"></i>
-                    Ish joyi qo'shish
-                </h2>
-                <button class="close-btn" onclick="closeModal('job')">&times;</button>
-            </div>
-            <form onsubmit="addJob(event)">
-                <div class="form-group">
-                    <label>Ish nomi *</label>
-                    <input type="text" class="form-control" id="jobTitle" placeholder="Masalan: Senior Dasturchi" required>
-                </div>
-                <div class="form-group">
-                    <label>Kompaniya *</label>
-                    <input type="text" class="form-control" id="companyName" placeholder="Kompaniya nomi" required>
-                </div>
-                <div class="form-group">
-                    <label>Maosh (so'm) *</label>
-                    <input type="number" class="form-control" id="jobSalary" placeholder="5000000" required>
-                </div>
-                <div class="form-group">
-                    <label>Manzil</label>
-                    <input type="text" class="form-control" id="jobLocation" placeholder="Toshkent, Yunusobod">
-                </div>
-                <div class="form-group">
-                    <label>Ish turi</label>
-                    <select class="form-control" id="jobType">
-                        <option>To'liq stavka</option>
-                        <option>Yarim stavka</option>
-                        <option>Masofaviy</option>
-                        <option>Stajirovka</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Tajriba</label>
-                    <select class="form-control" id="jobExperience">
-                        <option>1 yilgacha</option>
-                        <option>1-3 yil</option>
-                        <option>3-5 yil</option>
-                        <option>5+ yil</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Talablar</label>
-                    <textarea class="form-control" rows="3" id="jobRequirements" placeholder="Nomzodga qo'yiladigan talablar..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Telefon</label>
-                    <input type="tel" class="form-control" id="jobPhone" placeholder="+998 XX XXX-XX-XX">
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px;">
-                    <i class="fas fa-check-circle"></i> Ish joyini e'lon qilish
-                </button>
-            </form>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Product">
+        <div class="card-body">
+            <div>Wireless Headphone Premium</div>
+            <div class="installment">45 000 so'm/oy</div>
+            <div class="price">480 000 so'm</div>
         </div>
     </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Product">
+        <div class="card-body">
+            <div>Sport krossovka Air</div>
+            <div class="installment">50 000 so'm/oy</div>
+            <div class="price">520 000 so'm</div>
+        </div>
+    </div>
+</div>
 
-    <style>
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-        }
+<footer>
+    <div class="contacts">
+        <a href="https://instagram.com/davronsharipov420" target="_blank" class="contact-item">
+            <i class="fab fa-instagram"></i>
+            davronsharipov420
+        </a>
+        <a href="tel:+998772510604" class="contact-item">
+            <i class="fa fa-phone"></i>
+            +998 77 251 06 04
+        </a>
+        <a href="https://t.me/Davron999999999" target="_blank" class="contact-item">
+            <i class="fab fa-telegram"></i>
+            @Davron999999999
+        </a>
+    </div>
+    <div class="copyright">
+        &copy; 2026 Online Bozor Platformasi. Barcha huquqlar himoyalangan.
+    </div>
+</footer>
 
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 35px;
-            border-radius: 30px;
-            max-width: 550px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            animation: modalSlide 0.3s ease;
-        }
-
-        @keyframes modalSlide {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f3f4f6;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: #6b7280;
-            transition: 0.3s;
-        }
-
-        .close-btn:hover {
-            color: #2563eb;
-            transform: rotate(90deg);
-        }
-
-        .modal-content label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #374151;
-            font-size: 14px;
-        }
-    </style>
-
-    <script>
-        // Data storage
-        let products = JSON.parse(localStorage.getItem('products')) || [];
-        let jobs = JSON.parse(localStorage.getItem('jobs')) || [];
-
-        // Initialize
-        window.onload = function() {
-            if (products.length === 0) {
-                // Sample products
-                const sampleProducts = [
-                    { name: 'iPhone 14 Pro', price: '12000000', seller: 'Aziz', category: 'Elektronika', badge: 'Yangi' },
-                    { name: 'Samsung TV 4K', price: '4500000', seller: 'Malika', category: 'Elektronika', badge: 'Arzon' },
-                    { name: 'Adidas Superstar', price: '550000', seller: 'Jasur', category: 'Kiyim', badge: 'Ishlatilgan' },
-                    { name: 'Mebel to\'plami', price: '3500000', seller: 'Shoxrux', category: 'Uy jihozlari', badge: 'Yangicha' }
-                ];
-                sampleProducts.forEach(p => products.push(p));
-            }
-            
-            if (jobs.length === 0) {
-                // Sample jobs
-                const sampleJobs = [
-                    { title: 'Senior Python Dasturchi', company: 'UzTech', salary: '20000000', location: 'Toshkent', type: 'To\'liq stavka' },
-                    { title: 'Frontend Developer', company: 'Digital City', salary: '12000000', location: 'Samarqand', type: 'Masofaviy' },
-                    { title: 'SMM Meneger', company: 'Brand Agency', salary: '7000000', location: 'Toshkent', type: 'To\'liq stavka' },
-                    { title: 'Accountant', company: 'Biznes Group', salary: '8500000', location: 'Buxoro', type: 'To\'liq stavka' }
-                ];
-                sampleJobs.forEach(j => jobs.push(j));
-            }
-
-            renderProducts();
-            renderJobs();
-            updateStats();
-        };
-
-        // Render products
-        function renderProducts() {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = '';
-            
-            products.slice(0, 8).forEach(product => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="product-badge">${product.badge || 'Sotiladi'}</div>
-                    <div class="product-image">
-                        <i class="fas fa-${getIcon(product.category)}"></i>
-                    </div>
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-price">${formatPrice(product.price)} so'm</div>
-                    <div class="product-seller">
-                        <i class="fas fa-user-circle"></i> ${product.seller || 'Sotuvchi'}
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // Render jobs
-        function renderJobs() {
-            const jobList = document.getElementById('jobList');
-            const mobileJobList = document.getElementById('mobileJobList');
-            jobList.innerHTML = '';
-            
-            jobs.slice(0, 5).forEach(job => {
-                const card = document.createElement('div');
-                card.className = 'job-card';
-                card.innerHTML = `
-                    <div class="job-header">
-                        <span class="job-title">${job.title}</span>
-                        <span class="job-salary">${formatPrice(job.salary)} so'm</span>
-                    </div>
-                    <div class="job-company">
-                        <i class="fas fa-building"></i> ${job.company}
-                    </div>
-                    <div class="job-location">
-                        <i class="fas fa-map-marker-alt"></i> ${job.location || 'Toshkent'}
-                    </div>
-                    <div class="job-tags">
-                        <span class="job-tag">${job.type || 'To\'liq stavka'}</span>
-                        <span class="job-tag">Maosh ${formatPrice(job.salary)}</span>
-                    </div>
-                `;
-                jobList.appendChild(card);
-                
-                // Clone for mobile
-                if (mobileJobList) {
-                    mobileJobList.appendChild(card.cloneNode(true));
-                }
-            });
-        }
-
-        // Add product
-        function addProduct(event) {
-            event.preventDefault();
-            
-            const product = {
-                name: document.getElementById('productName').value,
-                price: document.getElementById('productPrice').value,
-                seller: document.getElementById('sellerName').value,
-                category: document.getElementById('productCategory').value,
-                badge: 'Yangi',
-                id: Date.now()
-            };
-
-            products.unshift(product);
-            localStorage.setItem('products', JSON.stringify(products));
-            
-            renderProducts();
-            event.target.reset();
-            
-            alert('✅ Mahsulot muvaffaqiyatli qo\'shildi!');
-        }
-
-        // Add product from modal
-        function addProductModal(event) {
-            event.preventDefault();
-            
-            const product = {
-                name: document.getElementById('modalProductName').value,
-                price: document.getElementById('modalProductPrice').value,
-                seller: document.getElementById('modalSellerName').value,
-                category: document.getElementById('modalProductCategory').value,
-                condition: document.getElementById('productCondition').value,
-                description: document.getElementById('modalProductDescription').value,
-                phone: document.getElementById('modalSellerPhone').value,
-                city: document.getElementById('modalCity').value,
-                badge: 'Yangi',
-                id: Date.now()
-            };
-
-            products.unshift(product);
-            localStorage.setItem('products', JSON.stringify(products));
-            
-            renderProducts();
-            closeModal('sell');
-            alert('✅ Mahsulot muvaffaqiyatli qo\'shildi!');
-        }
-
-        // Add job
-        function addJob(event) {
-            event.preventDefault();
-            
-            const job = {
-                title: document.getElementById('jobTitle').value,
-                company: document.getElementById('companyName').value,
-                salary: document.getElementById('jobSalary').value,
-                location: document.getElementById('jobLocation').value || 'Toshkent',
-                type: document.getElementById('jobType').value,
-                experience: document.getElementById('jobExperience').value,
-                requirements: document.getElementById('jobRequirements').value,
-                phone: document.getElementById('jobPhone').value,
-                id: Date.now()
-            };
-
-            jobs.unshift(job);
-            localStorage.setItem('jobs', JSON.stringify(jobs));
-            
-            renderJobs();
-            closeModal('job');
-            event.target.reset();
-            
-            alert('✅ Ish joyi muvaffaqiyatli qo\'shildi!');
-        }
-
-        // Helper functions
-        function formatPrice(price) {
-            return Number(price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-        }
-
-        function getIcon(category) {
-            const icons = {
-                'Elektronika': 'mobile-alt',
-                'Kiyim': 'tshirt',
-                'Uy jihozlari': 'couch',
-                'Avtomobil': 'car',
-                'Sport': 'futbol',
-                'Kitoblar': 'book',
-                'Boshqa': 'box'
-            };
-            return icons[category] || 'box';
-        }
-
-        function updateStats() {
-            // Update localStorage counts
-            localStorage.setItem('productCount', products.length);
-            localStorage.setItem('jobCount', jobs.length);
-        }
-
-        // Modal functions
-        function openModal(type) {
-            document.getElementById(type + 'Modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(type) {
-            document.getElementById(type + 'Modal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal on outside click
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Search function
-        document.querySelector('.search-btn').addEventListener('click', function() {
-            const query = document.querySelector('.search-input').value;
-            if (query) {
-                alert(`"${query}" bo'yicha qidirish... Tez kunda!`);
-            }
-        });
-    </script>
 </body>
 </html>
