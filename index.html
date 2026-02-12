@@ -3,238 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Bozor | Davron Sharipov</title>
+    <title>Davron Market | Professional Online Bozor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --main-color: #7000ff; /* Uzum binafsha rangi */
-            --bg-color: #f4f5f5;
-            --text-dark: #1f2026;
+            --uzum-purple: #7000ff;
+            --uzum-yellow: #ffbe1f;
+            --bg-gray: #f2f4f7;
+            --text-main: #1f2026;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            color: var(--text-dark);
+            background-color: var(--bg-gray);
+            color: var(--text-main);
         }
 
-        /* Header */
-        header {
+        /* Navigatsiya */
+        nav {
             background: #fff;
-            padding: 15px 5%;
+            padding: 10px 5%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--main-color);
-            text-decoration: none;
+        .logo { font-size: 26px; font-weight: 800; color: var(--uzum-purple); text-decoration: none; }
+
+        .search-box { flex: 0.5; display: flex; border: 2px solid var(--uzum-purple); border-radius: 8px; overflow: hidden; }
+        .search-box input { width: 100%; border: none; padding: 10px; outline: none; }
+        .search-box button { background: var(--uzum-purple); color: white; border: none; padding: 0 20px; cursor: pointer; }
+
+        .nav-icons { display: flex; gap: 20px; font-size: 18px; cursor: pointer; }
+
+        /* Ro'yxatdan o'tish formasi (Modal) */
+        .auth-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
         }
 
-        .search-bar {
-            flex: 0.6;
-            display: flex;
+        .auth-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .search-bar input {
+        .auth-card input {
             width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #e2e2e2;
-            border-radius: 4px 0 0 4px;
-            outline: none;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
         }
 
-        .search-bar button {
-            background: var(--main-color);
+        .auth-btn {
+            background: var(--uzum-purple);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 0 4px 4px 0;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         /* Nasiya Bo'limi */
-        .nasiya-banner {
-            background: linear-gradient(90deg, #7000ff 0%, #a259ff 100%);
-            color: white;
-            padding: 20px 5%;
+        .nasiya-section {
+            background: #fff;
             margin: 20px 5%;
+            padding: 20px;
             border-radius: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-left: 5px solid var(--uzum-yellow);
         }
 
-        .limit-box {
-            background: rgba(255,255,255,0.2);
-            padding: 15px;
+        .limit-btn {
+            background: var(--uzum-yellow);
+            padding: 10px 20px;
             border-radius: 8px;
-            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
         }
 
         /* Mahsulotlar */
-        .container {
-            padding: 20px 5%;
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
+            padding: 20px 5%;
         }
 
-        .card {
+        .product-card {
             background: white;
-            border-radius: 10px;
-            overflow: hidden;
+            border-radius: 12px;
+            padding: 10px;
             transition: 0.3s;
-            position: relative;
         }
 
-        .card:hover {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-body {
-            padding: 12px;
-        }
-
-        .price {
-            font-weight: bold;
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .installment {
-            background: #ff0;
-            font-size: 12px;
-            padding: 2px 5px;
-            border-radius: 4px;
-            display: inline-block;
-        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .product-card img { width: 100%; border-radius: 8px; }
 
         /* Footer */
         footer {
-            background: #fff;
+            background: white;
             padding: 40px 5%;
             margin-top: 50px;
-            border-top: 1px solid #e2e2e2;
-        }
-
-        .contacts {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .contact-item {
-            text-decoration: none;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        .contact-item:hover {
-            color: var(--main-color);
-        }
-
-        .contact-item i {
-            font-size: 24px;
-            color: var(--main-color);
-        }
-
-        .copyright {
             text-align: center;
-            margin-top: 30px;
-            color: #8b8e99;
-            font-size: 14px;
+            border-top: 2px solid #eee;
         }
+
+        .social-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; }
+        .social-links a { text-decoration: none; color: var(--text-main); display: flex; flex-direction: column; align-items: center; }
+        .social-links i { font-size: 25px; color: var(--uzum-purple); margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="#" class="logo">ONLINE BOZOR</a>
-    <div class="search-bar">
-        <input type="text" placeholder="Mahsulotlarni qidirish...">
+<nav>
+    <a href="#" class="logo">DAVRON MARKET</a>
+    <div class="search-box">
+        <input type="text" placeholder="Mahsulot, brend qidirish...">
         <button><i class="fa fa-search"></i></button>
     </div>
-    <div>Kirish | Savatcha</div>
-</header>
+    <div class="nav-icons">
+        <div onclick="openAuth()"><i class="fa fa-user"></i> Kirish</div>
+        <div><i class="fa fa-shopping-cart"></i> Savatcha</div>
+    </div>
+</nav>
 
-<section class="nasiya-banner">
+<div class="nasiya-section">
     <div>
-        <h2>Nasiya savdo 0-0-12</h2>
-        <p>Boshlang'ich to'lovsiz, halol muddatli to'lov!</p>
+        <h3 style="margin:0;">Nasiya savdo (0-0-12)</h3>
+        <p style="color: #666; margin: 5px 0;">Siz uchun mavjud limit: <b>15 000 000 so'm</b></p>
     </div>
-    <div class="limit-box">
-        <div>Sizning limitingiz:</div>
-        <div style="font-size: 24px; font-weight: bold;">15 000 000 so'm</div>
-        <small>Ma'lumot olish uchun ro'yxatdan o'ting</small>
-    </div>
-</section>
+    <div class="limit-btn" onclick="openAuth()">Limitni tekshirish</div>
+</div>
 
-<div class="container">
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Product">
-        <div class="card-body">
-            <div>Smart soat Apple V8</div>
-            <div class="installment">24 000 so'm/oy</div>
-            <div class="price">250 000 so'm</div>
-        </div>
+<div class="grid">
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7?w=300" alt="Phone">
+        <h4>Smartphone Ultra HD</h4>
+        <p style="color: var(--uzum-purple); font-weight: bold;">4 500 000 so'm</p>
+        <button class="auth-btn" style="padding: 5px; font-size: 12px;">Savatchaga</button>
     </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Product">
-        <div class="card-body">
-            <div>Wireless Headphone Premium</div>
-            <div class="installment">45 000 so'm/oy</div>
-            <div class="price">480 000 so'm</div>
-        </div>
+    <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=300" alt="Watch">
+        <h4>Classic Premium Watch</h4>
+        <p style="color: var(--uzum-purple); font-weight: bold;">850 000 so'm</p>
+        <button class="auth-btn" style="padding: 5px; font-size: 12px;">Savatchaga</button>
     </div>
-    <div class="card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Product">
-        <div class="card-body">
-            <div>Sport krossovka Air</div>
-            <div class="installment">50 000 so'm/oy</div>
-            <div class="price">520 000 so'm</div>
-        </div>
+</div>
+
+<div class="auth-overlay" id="authModal">
+    <div class="auth-card">
+        <h2 style="color: var(--uzum-purple);">Ro'yxatdan o'tish</h2>
+        <p>Email va telefon orqali shaxsiy kabinetga kiring</p>
+        <input type="email" placeholder="Email manzilingiz" id="email">
+        <input type="tel" placeholder="Telefon raqamingiz" value="+998">
+        <input type="password" placeholder="Parol yarating">
+        <button class="auth-btn" onclick="register()">Ro'yxatdan o'tish</button>
+        <p style="font-size: 12px; color: #777; margin-top: 15px; cursor: pointer;" onclick="closeAuth()">Yopish</p>
     </div>
 </div>
 
 <footer>
-    <div class="contacts">
-        <a href="https://instagram.com/davronsharipov420" target="_blank" class="contact-item">
+    <div class="social-links">
+        <a href="https://instagram.com/davronsharipov420" target="_blank">
             <i class="fab fa-instagram"></i>
-            davronsharipov420
+            <span>Instagram</span>
         </a>
-        <a href="tel:+998772510604" class="contact-item">
-            <i class="fa fa-phone"></i>
-            +998 77 251 06 04
-        </a>
-        <a href="https://t.me/Davron999999999" target="_blank" class="contact-item">
+        <a href="https://t.me/Davron999999999" target="_blank">
             <i class="fab fa-telegram"></i>
-            @Davron999999999
+            <span>Telegram</span>
+        </a>
+        <a href="tel:+998772510604">
+            <i class="fa fa-phone"></i>
+            <span>Telefon</span>
         </a>
     </div>
-    <div class="copyright">
-        &copy; 2026 Online Bozor Platformasi. Barcha huquqlar himoyalangan.
-    </div>
+    <p style="color: #888;">&copy; 2026 Davron Market. Barcha huquqlar himoyalangan.</p>
 </footer>
+
+<script>
+    function openAuth() {
+        document.getElementById('authModal').style.display = 'flex';
+    }
+    function closeAuth() {
+        document.getElementById('authModal').style.display = 'none';
+    }
+    function register() {
+        const email = document.getElementById('email').value;
+        if(email) {
+            alert(email + " manziliga tasdiqlash kodi yuborildi! (Bu hozircha demo)");
+            closeAuth();
+        } else {
+            alert("Iltimos, email kiriting!");
+        }
+    }
+</script>
 
 </body>
 </html>
